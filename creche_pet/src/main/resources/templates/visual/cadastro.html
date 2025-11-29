@@ -61,7 +61,7 @@
 <div class="cadastro-card">
     <h3>Crie sua conta</h3>
 
-    	<form th:action="@{/register/save}" method="post" th:object="${user}">
+    	<form th:action="@{/cadastro/save}" method="post" th:object="${user}">
 
 			<div th:if="${#fields.hasErrors('*')}" class="alert alert-danger">
 			    <p th:each="err : ${#fields.errors('*')}" th:text="${err}"></p>
@@ -81,6 +81,12 @@
 	    <div class="mb-3">
 	        <label class="form-label">Senha</label>
 	        <input type="password" class="form-control" th:field="*{senha}" required>
+	    </div>
+
+	    <div class="mb-3">
+	        <label class="form-label">Frase de Segurança</label><br>
+          <i>Essa frase será usada para a recuperação da sua senha. Anote-a e não a perca.</i>
+	        <input type="text" class="form-control" th:field="*{dica}" placeholder="" required>
 	    </div>
 
 	    <button type="submit" class="btn-cadastro">Cadastrar</button>

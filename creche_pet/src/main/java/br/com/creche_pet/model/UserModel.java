@@ -3,8 +3,6 @@ package br.com.creche_pet.model;
 import java.time.LocalDateTime;
 import java.util.*;
 
-
-
 // import br.com.creche_pet.enums.Role;
 import jakarta.persistence.*;
 
@@ -27,16 +25,14 @@ public class UserModel {
 
   @Column(name = "senha")
   private String senha;
-  
 
-  
+  @Column(name = "dica")
+  private String dica;
+
   @Column(name = "aprovado")
   private boolean aprovado;
 
-
- 
-
-@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+  @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
   @JoinTable(name = "users_roles", joinColumns = {
       @JoinColumn(name = "id_user", referencedColumnName = "id_user") }, inverseJoinColumns = {
           @JoinColumn(name = "id_role", referencedColumnName = "id_role") })
@@ -48,8 +44,6 @@ public class UserModel {
 
   @Column(name = "reset_token_expiry")
   private LocalDateTime resetTokenExpiry; // Armazena a data de expiração do token
-
- 
 
   public Long getIdUser() {
     return idUser;
@@ -107,16 +101,19 @@ public class UserModel {
     this.resetTokenExpiry = resetTokenExpiry;
   }
 
+  public boolean isAprovado() {
+    return aprovado;
+  }
 
+  public void setAprovado(boolean aprovado) {
+    this.aprovado = aprovado;
+  }
 
-public boolean isAprovado() {
-	return aprovado;
-}
+  public String getDica() {
+    return dica;
+  }
 
-public void setAprovado(boolean aprovado) {
-	this.aprovado = aprovado;
-}
-  
-
-
+  public void setDica(String dica) {
+    this.dica = dica;
+  }
 }

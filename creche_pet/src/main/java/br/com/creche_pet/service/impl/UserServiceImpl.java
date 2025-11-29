@@ -37,6 +37,7 @@ public class UserServiceImpl implements UserService {
     user.setNome(dto.getNome());
     user.setEmail(dto.getEmail());
     user.setSenha(passwordEncoder.encode(dto.getSenha()));
+    user.setDica(passwordEncoder.encode(dto.getDica()));
     user.setAprovado(false);
 
     // Busca role ROLE_USER

@@ -95,7 +95,7 @@ public class WebSecurityConfig {
 
         .formLogin(form -> form
             .loginPage("/login")
-            .usernameParameter("email") 
+            .usernameParameter("email")
             .passwordParameter("senha")
             /* .defaultSuccessUrl("/home", true) */
             .successHandler(customAuthenticationSuccessHandler()) // nosso handler .failureUrl("/login?error=true")

@@ -5,66 +5,68 @@ import jakarta.validation.constraints.NotEmpty;
 
 public class UserDto {
 
-    private Long idUser;
+  private Long idUser;
 
-    @NotEmpty(message = "Nome não pode estar vazio")
-    private String nome;
+  @NotEmpty(message = "Nome não pode estar vazio")
+  private String nome;
 
-    @NotEmpty(message = "Email não pode estar vazio")
-    @Email
-    private String email;
+  @NotEmpty(message = "Email não pode estar vazio")
+  @Email
+  private String email;
 
-    @NotEmpty(message = "Senha não pode estar vazia")
-    private String senha;
-    
-    
-    
-    private boolean aprovado;
-    
-    
+  @NotEmpty(message = "Senha não pode estar vazia")
+  private String senha;
 
+  @NotEmpty(message = "Dica de senha não pode ser vazia")
+  private String dica;
 
-  
-	public boolean isAprovado() {
-		return aprovado;
-	}
+  private boolean aprovado;
 
-	public void setAprovado(boolean aprovado) {
-		this.aprovado = aprovado;
-	}
+  public boolean isAprovado() {
+    return aprovado;
+  }
 
-	
-	
-    public Long getIdUser() {
-        return idUser;
-    }
+  public void setAprovado(boolean aprovado) {
+    this.aprovado = aprovado;
+  }
 
-    public void setIdUser(Long idUser) {
-        this.idUser = idUser;
-    }
+  public Long getIdUser() {
+    return idUser;
+  }
 
-    public String getNome() {
-        return nome;
-    }
+  public void setIdUser(Long idUser) {
+    this.idUser = idUser;
+  }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+  public String getNome() {
+    return nome;
+  }
 
-    public String getEmail() {
-        return email;
-    }
+  public void setNome(String nome) {
+    this.nome = nome;
+  }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+  public String getEmail() {
+    return email;
+  }
 
-    public String getSenha() {
-        return senha;
-    }
+  public void setEmail(String email) {
+    this.email = email;
+  }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
+  public String getSenha() {
+    return senha;
+  }
+
+  public void setSenha(String senha) {
+    this.senha = senha;
+  }
+
+  public String getDica() {
+    return dica;
+  }
+
+  public void setDica(String dica) {
+    this.dica = dica;
+  }
 }
-
