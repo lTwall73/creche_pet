@@ -36,7 +36,7 @@ public class AuthController {
     this.passwordEncoder = passwordEncoder;
   }
 
-  //  LOGIN 
+  // LOGIN
   @GetMapping("/login")
   public String loginForm(Model model) {
     model.addAttribute("user", new UserModel()); // ou UserDto
@@ -70,7 +70,7 @@ public class AuthController {
 
   }
 
-  //REGISTRO 
+  // REGISTRO
   @GetMapping("/cadastro")
   public String showRegistrationForm(Model model) {
     model.addAttribute("user", new UserDto());
@@ -79,11 +79,11 @@ public class AuthController {
     return "visual/cadastro"; // seu template Thymeleaf
   }
 
-  @PostMapping("/register/save")
+  @PostMapping("/cadastro/save")
   public String registration(@Valid @ModelAttribute("user") UserDto userDto,
       BindingResult result,
       Model model) {
-	    System.out.println("TEST");
+    System.out.println("TEST");
 
     UserModel existing = userService.findUserByEmail(userDto.getEmail());
     if (existing != null) {
@@ -98,7 +98,7 @@ public class AuthController {
     return "redirect:/login?success";
   }
 
-  // USUÁRIOS 
+  // USUÁRIOS
   @GetMapping("/users")
   public String listRegisteredUsers(Model model) {
     List<UserDto> users = userService.findAllUsers();
@@ -106,30 +106,28 @@ public class AuthController {
     return "users"; // template para listar usuários
   }
 
-  // LOGOUT 
+  // LOGOUT
   @GetMapping("/logout")
   public String logout(HttpSession session) {
     session.invalidate();
     return "redirect:/login?logout";
   }
 
-  //  ESQUECI MINHA SENHA 
+  // ESQUECI MINHA SENHA
 
-  
   @GetMapping("/forgot-password")
   public String showForgotPasswordPage() {
     return "forgot-password";
   }
 
- 
   @PostMapping("/forgot-password")
   public String forgotPassword(@RequestParam String email, Model model) {
 
     try {
-    	   String token = passwordResetService.createPasswordResetToken(email);
-    	      String link = "http://localhost:8080/reset-password?token=" + token;
-    	      model.addAttribute("link", link); // Adiciona o link no modelo
-    	      model.addAttribute("message", "O link de redefinição foi gerado com sucesso.");
+      String token = passwordResetService.createPasswordResetToken(email);
+      String link = "http://localhost:8080/reset-password?token=" + token;
+      model.addAttribute("link", link); // Adiciona o link no modelo
+      model.addAttribute("message", "O link de redefinição foi gerado com sucesso.");
     } catch (Exception e) {
       model.addAttribute("error", e.getMessage());
     }
@@ -137,14 +135,12 @@ public class AuthController {
     return "forgot-password";
   }
 
-  
   @GetMapping("/reset-password")
   public String showResetForm(@RequestParam String token, Model model) {
     model.addAttribute("token", token);
     return "reset-password";
   }
 
-  
   @PostMapping("/reset-password")
   public String resetPassword(
       @RequestParam String token,
@@ -170,5 +166,3 @@ public class AuthController {
     }
   }
 }
-
-
