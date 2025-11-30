@@ -121,8 +121,19 @@ public class AuthController {
   }
 
   @PostMapping("/forgot-password")
-  public String forgotPassword(@RequestParam String email, Model model) {
+  public String forgotPassword(@RequestParam String email, @RequestParam String dica, Model model) {
 
+    UserModel user = userRepository.findByEmail(email).orElse(null);
+
+    if (user == null) {
+      model.addAttribute("error", "E-mail ou dica de senha incorretos.");
+      return "forgot-password";
+    }
+
+    if (!passwordEncoder.matches(dica, user.getDica())) {
+      model.addAttribute("error", "E-mail ou frase de segurança incorretos.");
+      return "forgot-password";
+    }
     try {
       String token = passwordResetService.createPasswordResetToken(email);
       String link = "http://localhost:8080/reset-password?token=" + token;
