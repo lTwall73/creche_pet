@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.43, for Linux (x86_64)
 --
--- Host: localhost    Database: cheche_pet_wall
+-- Host: localhost    Database: creche_pet
 -- ------------------------------------------------------
 -- Server version	8.0.43-0ubuntu0.22.04.2
 
@@ -36,7 +36,6 @@ CREATE TABLE `cargo` (
 
 LOCK TABLES `cargo` WRITE;
 /*!40000 ALTER TABLE `cargo` DISABLE KEYS */;
-INSERT INTO `cargo` VALUES (7000,1,'Gerente'),(2000,2,'Atendente'),(4500,3,'Veterinário'),(2000,4,'Auxiliar de Limpeza');
 /*!40000 ALTER TABLE `cargo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -65,7 +64,6 @@ CREATE TABLE `contato` (
 
 LOCK TABLES `contato` WRITE;
 /*!40000 ALTER TABLE `contato` DISABLE KEYS */;
-INSERT INTO `contato` VALUES ('2025-11-25',_binary '',1,'promoção','rosinete@gmail.com','Dando banho em dois pets ganha algum desconto ?','Rosinete'),('2025-11-26',_binary '',2,'Assunto','wallace@email.com','Mensagem Teste','Wallace');
 /*!40000 ALTER TABLE `contato` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -95,7 +93,6 @@ CREATE TABLE `endereco` (
 
 LOCK TABLES `endereco` WRITE;
 /*!40000 ALTER TABLE `endereco` DISABLE KEYS */;
-INSERT INTO `endereco` VALUES (2,'Dos Ferreiras','26183603','Belford Roxo','','RJ','Rua Crisolita','3'),(3,'Vigário Geral','21240660','Rio de Janeiro','Fundos','RJ','Rua Figueiredo Rocha','513');
 /*!40000 ALTER TABLE `endereco` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -133,7 +130,6 @@ CREATE TABLE `funcionario` (
 
 LOCK TABLES `funcionario` WRITE;
 /*!40000 ALTER TABLE `funcionario` DISABLE KEYS */;
-INSERT INTO `funcionario` VALUES ('3000-11-26','2030-12-21','1998-12-21',3,3,2,'192.695.687-76','mendesbrenda840@gmail.com','Brenda Mendes','Souza','(21) 96658-8324','51.651.651-3');
 /*!40000 ALTER TABLE `funcionario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -164,7 +160,6 @@ CREATE TABLE `matricula` (
 
 LOCK TABLES `matricula` WRITE;
 /*!40000 ALTER TABLE `matricula` DISABLE KEYS */;
-INSERT INTO `matricula` VALUES ('Sim','2025-11-25',1,1,1);
 /*!40000 ALTER TABLE `matricula` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -221,7 +216,6 @@ CREATE TABLE `pet` (
 
 LOCK TABLES `pet` WRITE;
 /*!40000 ALTER TABLE `pet` DISABLE KEYS */;
-INSERT INTO `pet` VALUES (8,'2020-08-12',1,1,'cachorro','Cacau','','viralata'),(10,'2017-05-03',2,1,'cachorro','Dave ','','viralata');
 /*!40000 ALTER TABLE `pet` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -272,7 +266,6 @@ CREATE TABLE `servico` (
 
 LOCK TABLES `servico` WRITE;
 /*!40000 ALTER TABLE `servico` DISABLE KEYS */;
-INSERT INTO `servico` VALUES (80,1,'Uso de água em temperatura agradável e shampoos e condicionadores específicos para animais para uma limpeza profunda da pele e pelagem.','Banho - Porte médio');
 /*!40000 ALTER TABLE `servico` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -299,7 +292,6 @@ CREATE TABLE `turma` (
 
 LOCK TABLES `turma` WRITE;
 /*!40000 ALTER TABLE `turma` DISABLE KEYS */;
-INSERT INTO `turma` VALUES (10,'18:00:00','07:30:00',1,'Cachorro - Porte médio ate 15kg');
 /*!40000 ALTER TABLE `turma` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -332,7 +324,6 @@ CREATE TABLE `tutor` (
 
 LOCK TABLES `tutor` WRITE;
 /*!40000 ALTER TABLE `tutor` DISABLE KEYS */;
-INSERT INTO `tutor` VALUES (NULL,2,1,'173.122.797-32','mendesbrenda@gmail.com','Brenda','30.129.260-3','Mendes de souza','(21) 96658-8324');
 /*!40000 ALTER TABLE `tutor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -359,7 +350,7 @@ CREATE TABLE `users_roles` (
 
 LOCK TABLES `users_roles` WRITE;
 /*!40000 ALTER TABLE `users_roles` DISABLE KEYS */;
-INSERT INTO `users_roles` VALUES (1,3),(2,1),(1,2),(2,5),(2,6);
+INSERT INTO `users_roles` VALUES (2,7),(1,8);
 /*!40000 ALTER TABLE `users_roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -381,7 +372,7 @@ CREATE TABLE `usuario` (
   `dica` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_user`),
   UNIQUE KEY `UK5171l57faosmj8myawaucatdw` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -390,7 +381,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'2025-11-28 18:48:35.164264','mendesbrenda840@gmail.com','Brenda Mendes','519db386-b775-4c38-9fbd-2abb19c64415','$2a$10$XONYCsYxU5wyGiY46QpKnOkUhvxEaFr3LZL.KG0xDdcSGXHfsCHou',1,NULL),(2,'2025-11-28 18:45:58.335847','rayssinha604@gmail.com','Rayssa','cb9e1ea8-510e-4609-bc00-a024fe5132cb','$2a$10$.ogc4TjSGPu/0BMRjT9aA.Pc7JUXYiuYvV7Xm3TSxHu4QNeWnzvEO',1,NULL),(3,NULL,'kaua@gmail.com','kaua',NULL,'$2a$10$wQgiV4jNwS9.Zdh8fXpeie.UwvhwlV.C7bXP61GTgQ/d0Fdd7EaHm',0,NULL),(5,NULL,'teste@email','Teste',NULL,'$2a$10$lgcWbF4yQZz5RilsY3S6p.PizeOFX2EWzWCS8jL475qBzIFC58hKO',1,NULL),(6,'2025-11-29 21:29:22.829962','dica@email.com','dica','c86a7069-3a21-41f2-b637-cfabb938c659','$2a$10$yD3Fn5nevWpyGOStR5OrAOGkM9LtqPIl1Pe5.UzDW.z9EvWI/qetC',1,'$2a$10$bsenXaekOtOKNoa5Ob.r3uGdRWYBIjyzIIpjfbDo9Fsi/JqyIA8EK');
+INSERT INTO `usuario` VALUES (7,NULL,'admin@email.com','admin',NULL,'$2a$10$hdC0ciVl/dec6sr.z4Sdm.eKHrNczn.gjod7oTYW13c.f1DBwXGJu',1,'$2a$10$pOiChS1XUa5ilaO.2Tkh7uxA/w.eABpl0xdF.PjiIpbwqxlp/IxAm'),(8,NULL,'usuario@email.com','usuario',NULL,'$2a$10$cDIljmJ419DxNSuAPzpo.uL3HYIkqgcY2iIOdzREdZ.yqua.8id6W',1,'$2a$10$QLswplZOvJ8QOuOpFXzEP.a.9ZVqaRISpzTjWOxj4ZJ.5/zRo6Nuu');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -403,4 +394,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-11-30  0:26:53
+-- Dump completed on 2025-11-30  3:02:36
