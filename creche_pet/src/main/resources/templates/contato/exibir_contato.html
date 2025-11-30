@@ -42,6 +42,8 @@
               <th>Data</th>
               <th>Status</th>
               <th>Ações</th>
+              <th>Ações</th>
+              <th>Ações</th>
             </tr>
           </thead>
           <tbody>
@@ -58,11 +60,21 @@
 
 
               <td>
-				<a th:href="@{/contato/editar/{id}(id=${c.idContato})}" class="btn btn-primary">Editar</a>		
-				<a th:href="@{/contato/excluir/{id}(id=${c.idContato})}" class="btn btn-danger">Excluir</a>
+				<a th:href="@{/contato/editar/{id}(id=${c.idContato})}" class="btn btn-primary" id="btn">Editar</a>		
 				
               </td>
-            </tr>
+              <td>
+				<a th:href="@{/contato/excluir/{id}(id=${c.idContato})}" class="btn btn-danger" id="btn">Excluir</a>
+                </td>
+
+<td>
+  <!-- Abre o Gmail com e-mail do cliente preenchido -->
+  <th:block th:with="encodedTo=${#uris.escapeQueryParam(c.email)}, encodedSubject=${#uris.escapeQueryParam('Re: ' + c.assunto)}, encodedBody=${#uris.escapeQueryParam('Olá ' + c.nome + ',Sua mensagem foi recebida e estamos analisando. Atenciosamente, Equipe Lar dos Pets.')}">
+    <a th:href="'https://mail.google.com/mail/?view=cm&fs=1&to=' + ${encodedTo} + '&su=' + ${encodedSubject} + '&body=' + ${encodedBody}"
+       class="btn btn-info"
+       target="_blank">Responder</a>
+  </th:block>
+              </tr>
           </tbody>
         </table>
       </div>
